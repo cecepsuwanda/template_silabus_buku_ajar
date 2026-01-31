@@ -1,0 +1,48 @@
+% Preamble bersama untuk Buku Ajar OBE Modular
+% Jangan sertakan \begin{document} di sini
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[indonesian]{babel}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm, headheight=15pt}
+
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{subfiles}
+\usepackage{fancyhdr}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue,
+  citecolor=blue
+}
+
+% Pengaturan header/footer (opsional, bisa disesuaikan)
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE]{\leftmark}
+\fancyhead[LO]{\rightmark}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% Lingkungan untuk blok Sub-CPMK / capaian per bab (OBE)
+\newenvironment{subcpmk}{
+  \noindent\textbf{Sub-CPMK yang dicakup:}
+  \begin{itemize}[leftmargin=*]
+}{
+  \end{itemize}
+}
+
+% Lingkungan untuk latihan (OBE)
+\newenvironment{latihan}{
+  \par\noindent\textbf{Latihan}
+  \begin{enumerate}[leftmargin=*]
+}{
+  \end{enumerate}
+}
