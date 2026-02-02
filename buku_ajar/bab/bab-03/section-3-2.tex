@@ -1,9 +1,23 @@
-\section{Tinjauan dan Contoh}
-\begin{subcpmk}
-  \item Sub-CPMK 3.2: ...
-\end{subcpmk}
-Materi section 3.2. Tinjauan lanjutan dan contoh penerapan. Sesuaikan dengan CPMK bab ini.
-\begin{latihan}
-  \item ...
-  \item ...
-\end{latihan}
+\section{Attributes (Instance Variables)}
+
+\subsection{Definisi Attributes}
+
+\textbf{Attributes} adalah variabel yang didefinisikan di dalam class untuk menyimpan state/data dari object.
+
+\begin{javacode}[caption={Contoh Attributes}]
+public class Mahasiswa {
+    // Attributes
+    String nim;
+    String nama;
+    String jurusan;
+    int semester;
+    double ipk;
+}
+\end{javacode}
+
+\subsection{Jenis Attributes}
+
+\begin{enumerate}
+  \item \textbf{Instance Variables}: Unik untuk setiap object
+  \item \textbf{Static Variables}: Dibagi oleh semua object (akan dibahas nanti)
+\end{enumerate}
