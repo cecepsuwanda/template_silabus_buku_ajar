@@ -1,9 +1,34 @@
-\section{Pendahuluan dan Konsep Dasar}
+\section{Polymorphism dan Method Overloading}
 \begin{subcpmk}
-  \item Sub-CPMK 6.1: ...
+  \item Sub-CPMK 3.2: Menerapkan polymorphism dalam desain aplikasi
 \end{subcpmk}
-Materi section 6.1. Isi bab keenam, section pertama. Gantikan dengan uraian sesuai mata kuliah dan capaian pembelajaran.
-\begin{latihan}
-  \item ...
-  \item ...
-\end{latihan}
+
+\begin{konsep}
+\textbf{Polymorphism} adalah kemampuan objek untuk tampil dalam banyak bentuk. Dalam Java, polymorphism muncul dalam dua bentuk: compile-time (overloading) dan runtime (overriding).
+\end{konsep}
+
+\subsection{Compile-time Polymorphism (Overloading)}
+Method overloading terjadi ketika terdapat beberapa method dengan nama sama, tetapi parameter berbeda.
+
+\begin{javacode}[caption={Contoh Overloading}]
+class Kalkulator {
+    public int tambah(int a, int b) {
+        return a + b;
+    }
+
+    public double tambah(double a, double b) {
+        return a + b;
+    }
+
+    public int tambah(int a, int b, int c) {
+        return a + b + c;
+    }
+}
+\end{javacode}
+
+\subsection{Keuntungan Overloading}
+\begin{itemize}
+  \item Memudahkan penggunaan API karena nama method konsisten
+  \item Mengurangi kompleksitas nama method
+  \item Membuat kode lebih mudah dibaca
+\end{itemize}

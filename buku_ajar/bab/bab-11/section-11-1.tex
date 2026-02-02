@@ -1,9 +1,55 @@
-\section{Pendahuluan dan Konsep Dasar}
+\section{Pengenalan Design Patterns dan Creational Patterns}
 \begin{subcpmk}
-  \item Sub-CPMK 11.1: ...
+  \item Sub-CPMK 4.2: Mengimplementasikan minimal 3 design patterns (Singleton, Factory, Observer)
 \end{subcpmk}
-Materi section 11.1. Isi bab kesebelas, section pertama. Gantikan dengan uraian sesuai mata kuliah dan capaian pembelajaran.
-\begin{latihan}
-  \item ...
-  \item ...
-\end{latihan}
+
+\begin{konsep}
+\textbf{Design pattern} adalah solusi umum untuk masalah desain yang sering muncul. Pattern membantu menghasilkan kode yang terstruktur dan mudah dipelihara.
+\end{konsep}
+
+\subsection{Singleton Pattern}
+Menjamin hanya ada satu instance dari class.
+
+\begin{javacode}[caption={Singleton Pattern}]
+public class DatabaseConnection {
+    private static DatabaseConnection instance;
+
+    private DatabaseConnection() {}
+
+    public static DatabaseConnection getInstance() {
+        if (instance == null) {
+            instance = new DatabaseConnection();
+        }
+        return instance;
+    }
+}
+\end{javacode}
+
+\subsection{Factory Pattern}
+Menyediakan cara membuat objek tanpa mengekspos logika instansiasi.
+
+\begin{javacode}[caption={Factory Pattern}]
+interface Kendaraan {
+    void jalan();
+}
+
+class Mobil implements Kendaraan {
+    public void jalan() {
+        System.out.println("Mobil berjalan");
+    }
+}
+
+class Motor implements Kendaraan {
+    public void jalan() {
+        System.out.println("Motor berjalan");
+    }
+}
+
+class KendaraanFactory {
+    public static Kendaraan buat(String jenis) {
+        if ("mobil".equalsIgnoreCase(jenis)) return new Mobil();
+        if ("motor".equalsIgnoreCase(jenis)) return new Motor();
+        return null;
+    }
+}
+\end{javacode}
