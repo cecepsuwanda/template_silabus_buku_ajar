@@ -1,9 +1,23 @@
-\section{Pendahuluan dan Konsep Dasar}
+\section{Unit Testing dan Siklus TDD}
 \begin{subcpmk}
-  \item Sub-CPMK 13.1: ...
+  \item Sub-CPMK 4.1: Menganalisis code smell dan melakukan refactoring
 \end{subcpmk}
-Materi section 13.1. Isi bab ketigabelas, section pertama. Gantikan dengan uraian sesuai mata kuliah dan capaian pembelajaran.
-\begin{latihan}
-  \item ...
-  \item ...
-\end{latihan}
+
+\subsection{Konsep Unit Testing}
+Unit testing memastikan setiap method bekerja sesuai harapan. Pengujian yang baik mempercepat deteksi bug.
+
+\subsection{Test-Driven Development (TDD)}
+Siklus TDD: \textbf{Red} (tulis test gagal), \textbf{Green} (buat test lulus), \textbf{Refactor} (perbaiki struktur).
+
+\begin{javacode}[caption={Contoh Unit Test JUnit}]
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
+
+class KalkulatorTest {
+    @Test
+    void testTambah() {
+        Kalkulator k = new Kalkulator();
+        assertEquals(5, k.tambah(2, 3));
+    }
+}
+\end{javacode}
