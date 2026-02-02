@@ -1,0 +1,407 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+
+\chapter{Evaluasi, Refleksi, dan Integrasi Kompetensi}
+
+Bab ini berisi asesmen komprehensif untuk mengukur pencapaian seluruh CPMK yang telah dipelajari sepanjang mata kuliah Pemrograman Berorientasi Objek.
+
+% ============================================================
+% KUMPULAN ASESMEN AKHIR
+% ============================================================
+
+\section{Asesmen Akhir Komprehensif}
+
+\subsection{Petunjuk Umum}
+
+Asesmen ini dirancang untuk mengukur pencapaian CPMK-1, CPMK-2, CPMK-3, dan CPMK-4 secara menyeluruh. Kerjakan dengan jujur dan mandiri.
+
+\textbf{Alokasi Waktu}:
+\begin{itemize}
+  \item Bagian A (Pilihan Ganda): 30 menit
+  \item Bagian B (Essay): 45 menit
+  \item Bagian C (Analisis Kode): 45 menit
+  \item Bagian D (Coding Challenge): 90 menit
+\end{itemize}
+
+\subsection{Bagian A: Pilihan Ganda (CPMK-1)}
+
+\textbf{Petunjuk}: Pilih satu jawaban yang paling tepat.
+
+\begin{enumerate}
+  \item Manakah yang BUKAN merupakan pilar OOP?
+  \begin{enumerate}
+    \item Abstraksi
+    \item Enkapsulasi
+    \item Kompilasi
+    \item Polimorfisme
+  \end{enumerate}
+  
+  \item Dalam Java, keyword untuk mewarisi class adalah:
+  \begin{enumerate}
+    \item inherits
+    \item extends
+    \item implements
+    \item super
+  \end{enumerate}
+  
+  \item Method overriding terjadi ketika:
+  \begin{enumerate}
+    \item Dua method dalam class yang sama memiliki nama sama
+    \item Subclass mendefinisikan ulang method dari superclass
+    \item Method memiliki parameter yang berbeda
+    \item Method dipanggil berkali-kali
+  \end{enumerate}
+  
+  \item Interface dalam Java:
+  \begin{enumerate}
+    \item Dapat memiliki instance variables
+    \item Semua methods harus abstract (sebelum Java 8)
+    \item Dapat di-instantiate
+    \item Hanya boleh memiliki satu method
+  \end{enumerate}
+  
+  \item Prinsip SOLID yang menyatakan "class harus terbuka untuk extension tapi tertutup untuk modification" adalah:
+  \begin{enumerate}
+    \item Single Responsibility Principle
+    \item Open/Closed Principle
+    \item Liskov Substitution Principle
+    \item Dependency Inversion Principle
+  \end{enumerate}
+  
+  \item Design pattern yang memastikan hanya ada satu instance dari class adalah:
+  \begin{enumerate}
+    \item Factory Pattern
+    \item Singleton Pattern
+    \item Observer Pattern
+    \item Strategy Pattern
+  \end{enumerate}
+  
+  \item Dalam Java Collections, struktur data yang tidak mengizinkan duplikat adalah:
+  \begin{enumerate}
+    \item List
+    \item Set
+    \item Map
+    \item Queue
+  \end{enumerate}
+  
+  \item Exception yang harus di-handle dengan try-catch disebut:
+  \begin{enumerate}
+    \item RuntimeException
+    \item Checked Exception
+    \item Unchecked Exception
+    \item Error
+  \end{enumerate}
+  
+  \item Dalam UML Class Diagram, relasi "has-a" digambarkan dengan:
+  \begin{enumerate}
+    \item Generalization
+    \item Association/Aggregation/Composition
+    \item Dependency
+    \item Realization
+  \end{enumerate}
+  
+  \item Annotation untuk menandai method sebagai test case dalam JUnit adalah:
+  \begin{enumerate}
+    \item @Test
+    \item @TestCase
+    \item @Unit
+    \item @Assert
+  \end{enumerate}
+\end{enumerate}
+
+\subsection{Bagian B: Essay (CPMK-1, CPMK-2)}
+
+\textbf{Petunjuk}: Jawab dengan jelas dan lengkap.
+
+\begin{enumerate}
+  \item Jelaskan perbedaan antara abstract class dan interface dalam Java! Kapan sebaiknya menggunakan abstract class dan kapan menggunakan interface? Berikan contoh kasus untuk masing-masing.
+  
+  \item Jelaskan konsep polymorphism dalam OOP! Berikan contoh kode Java yang mendemonstrasikan compile-time polymorphism dan runtime polymorphism.
+  
+  \item Jelaskan 5 prinsip SOLID! Pilih salah satu prinsip dan berikan contoh kode yang melanggar prinsip tersebut, kemudian perbaiki kode tersebut.
+  
+  \item Gambarkan Class Diagram untuk sistem perpustakaan sederhana yang memiliki minimal 5 class dengan relasi yang tepat (association, aggregation, composition, inheritance).
+  
+  \item Jelaskan konsep Test-Driven Development (TDD)! Apa keuntungan menggunakan TDD dalam pengembangan software?
+\end{enumerate}
+
+\subsection{Bagian C: Analisis Kode (CPMK-3, CPMK-4)}
+
+\textbf{Petunjuk}: Analisis kode berikut dan jawab pertanyaan.
+
+\begin{javacode}[caption={Kode untuk Dianalisis}]
+public class BankAccount {
+    public String accountNumber;
+    public double balance;
+    public String ownerName;
+    
+    public void deposit(double amount) {
+        balance = balance + amount;
+    }
+    
+    public void withdraw(double amount) {
+        balance = balance - amount;
+    }
+    
+    public double getBalance() {
+        return balance;
+    }
+}
+
+public class SavingsAccount extends BankAccount {
+    public double interestRate;
+    
+    public void addInterest() {
+        balance = balance + (balance * interestRate);
+    }
+}
+\end{javacode}
+
+\textbf{Pertanyaan}:
+\begin{enumerate}
+  \item Identifikasi minimal 5 masalah dalam kode di atas terkait dengan prinsip OOP dan best practices.
+  \item Perbaiki kode tersebut dengan menerapkan encapsulation yang tepat.
+  \item Tambahkan validasi yang diperlukan pada method \method{deposit} dan \method{withdraw}.
+  \item Implementasikan constructor yang sesuai untuk kedua class.
+  \item Apakah kode ini melanggar prinsip SOLID? Jelaskan!
+\end{enumerate}
+
+\subsection{Bagian D: Coding Challenge (CPMK-2, CPMK-3, CPMK-4)}
+
+\textbf{Petunjuk}: Implementasikan sistem berikut dengan menerapkan semua konsep OOP yang telah dipelajari.
+
+\textbf{Studi Kasus: Sistem Manajemen Toko Buku Online}
+
+Buat sistem manajemen toko buku online dengan requirements berikut:
+
+\textbf{Requirements}:
+\begin{enumerate}
+  \item \textbf{Class \class{Buku}}:
+  \begin{itemize}
+    \item Attributes: isbn, judul, penulis, penerbit, tahunTerbit, harga, stok
+    \item Methods: getInfo(), updateStok(), hitungDiskon()
+  \end{itemize}
+  
+  \item \textbf{Class \class{BukuFisik}} (extends \class{Buku}):
+  \begin{itemize}
+    \item Attribute tambahan: berat, dimensi
+    \item Method: hitungOngkir()
+  \end{itemize}
+  
+  \item \textbf{Class \class{Ebook}} (extends \class{Buku}):
+  \begin{itemize}
+    \item Attribute tambahan: ukuranFile, format
+    \item Method: download()
+  \end{itemize}
+  
+  \item \textbf{Class \class{Pelanggan}}:
+  \begin{itemize}
+    \item Attributes: idPelanggan, nama, email, alamat
+    \item Methods: register(), updateProfile()
+  \end{itemize}
+  
+  \item \textbf{Class \class{Keranjang}}:
+  \begin{itemize}
+    \item Attributes: daftarBuku (ArrayList), pelanggan
+    \item Methods: tambahBuku(), hapusBuku(), hitungTotal(), checkout()
+  \end{itemize}
+  
+  \item \textbf{Interface \class{Pembayaran}}:
+  \begin{itemize}
+    \item Methods: prosesPembayaran(), verifikasiPembayaran()
+  \end{itemize}
+  
+  \item \textbf{Class \class{PembayaranKartuKredit}} dan \class{PembayaranTransfer}} (implements \class{Pembayaran})
+\end{enumerate}
+
+\textbf{Kriteria Penilaian}:
+\begin{itemize}
+  \item Penerapan encapsulation (private attributes, getter/setter)
+  \item Penggunaan inheritance yang tepat
+  \item Implementasi polymorphism
+  \item Penggunaan interface
+  \item Validasi data yang sesuai
+  \item Exception handling
+  \item Code quality (naming, comments, structure)
+  \item Unit testing untuk minimal 3 methods
+\end{itemize}
+
+% ============================================================
+% RUBRIK PENILAIAN KOMPREHENSIF
+% ============================================================
+
+\section{Rubrik Penilaian Komprehensif}
+
+\subsection{Rubrik untuk Coding Challenge}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{|p{3cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
+\hline
+\textbf{Kriteria} & \textbf{Excellent (4)} & \textbf{Good (3)} & \textbf{Fair (2)} & \textbf{Poor (1)} \\
+\hline
+Encapsulation & Semua attributes private dengan getter/setter yang tepat & Sebagian besar private & Beberapa public & Semua public \\
+\hline
+Inheritance & Hierarki class tepat, code reuse optimal & Inheritance digunakan dengan baik & Inheritance kurang optimal & Tidak menggunakan inheritance \\
+\hline
+Polymorphism & Mendemonstrasikan compile-time dan runtime polymorphism & Menggunakan salah satu jenis polymorphism & Polymorphism minimal & Tidak ada polymorphism \\
+\hline
+Interface & Interface digunakan dengan tepat & Interface digunakan tapi kurang optimal & Interface ada tapi tidak efektif & Tidak menggunakan interface \\
+\hline
+Exception Handling & Comprehensive error handling & Error handling untuk kasus utama & Minimal error handling & Tidak ada error handling \\
+\hline
+Code Quality & Clean code, well-documented, follows conventions & Good structure, adequate comments & Basic structure, minimal comments & Poor structure, no comments \\
+\hline
+Unit Testing & Comprehensive tests, good coverage & Tests untuk fungsi utama & Minimal testing & No testing \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Bobot Penilaian}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|c|}
+\hline
+\textbf{Komponen} & \textbf{Bobot} \\
+\hline
+Bagian A: Pilihan Ganda & 20\% \\
+\hline
+Bagian B: Essay & 20\% \\
+\hline
+Bagian C: Analisis Kode & 20\% \\
+\hline
+Bagian D: Coding Challenge & 40\% \\
+\hline
+\textbf{Total} & \textbf{100\%} \\
+\hline
+\end{tabular}
+\end{table}
+
+% ============================================================
+% TINJAUAN PENCAPAIAN KOMPETENSI
+% ============================================================
+
+\section{Tinjauan Pencapaian Kompetensi Secara Menyeluruh}
+
+\subsection{Pemetaan Asesmen ke CPMK}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|p{5cm}|p{8cm}|}
+\hline
+\textbf{CPMK} & \textbf{Diukur Melalui} \\
+\hline
+CPMK-1: Memahami konsep dasar OOP & Pilihan Ganda (1-4), Essay (1-2) \\
+\hline
+CPMK-2: Merancang solusi dengan UML & Essay (4), Coding Challenge (Design) \\
+\hline
+CPMK-3: Mengimplementasikan OOP dengan SOLID & Analisis Kode, Coding Challenge (Implementation) \\
+\hline
+CPMK-4: Menganalisis dan mengevaluasi kualitas kode & Analisis Kode, Coding Challenge (Quality) \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Self-Assessment Checklist}
+
+Sebelum mengerjakan asesmen akhir, pastikan Anda telah menguasai:
+
+\begin{checklist}
+  \item Konsep dasar OOP (class, object, encapsulation, inheritance, polymorphism)
+  \item Perbedaan abstract class dan interface
+  \item Cara membuat dan menggunakan UML diagrams
+  \item Implementasi inheritance dan polymorphism dalam Java
+  \item Exception handling yang tepat
+  \item Prinsip-prinsip SOLID
+  \item Design patterns dasar (Singleton, Factory, Observer)
+  \item Java Collections Framework
+  \item Unit testing dengan JUnit
+  \item Best practices dalam penulisan kode Java
+\end{checklist}
+
+% ============================================================
+% REKOMENDASI TINDAK LANJUT
+% ============================================================
+
+\section{Rekomendasi Tindak Lanjut Pembelajaran}
+
+\subsection{Untuk Mahasiswa yang Sudah Menguasai Semua CPMK}
+
+Jika Anda telah menguasai semua materi dengan baik, pertimbangkan untuk:
+
+\begin{enumerate}
+  \item \textbf{Proyek Portofolio}: Buat aplikasi Java lengkap yang mendemonstrasikan semua konsep OOP
+  \item \textbf{Eksplorasi Framework}: Pelajari Spring Framework atau Jakarta EE
+  \item \textbf{Design Patterns Lanjut}: Pelajari 23 GoF Design Patterns secara mendalam
+  \item \textbf{Clean Code}: Baca buku "Clean Code" oleh Robert C. Martin
+  \item \textbf{Kontribusi Open Source}: Berkontribusi pada proyek Java open source
+  \item \textbf{Sertifikasi}: Persiapkan Oracle Certified Professional Java Programmer
+\end{enumerate}
+
+\subsection{Untuk Mahasiswa yang Masih Perlu Perbaikan}
+
+Jika ada CPMK yang belum dikuasai dengan baik:
+
+\begin{enumerate}
+  \item \textbf{Review Materi}: Baca ulang bab terkait dengan lebih teliti
+  \item \textbf{Praktik Lebih Banyak}: Kerjakan lebih banyak latihan coding
+  \item \textbf{Konsultasi}: Diskusikan dengan dosen atau asisten
+  \item \textbf{Study Group}: Bentuk kelompok belajar dengan teman
+  \item \textbf{Online Resources}: Manfaatkan tutorial online (Coursera, Udemy, YouTube)
+  \item \textbf{Coding Practice}: Gunakan platform seperti HackerRank, LeetCode untuk latihan
+\end{enumerate}
+
+\subsection{Sumber Belajar Tambahan}
+
+\textbf{Buku}:
+\begin{itemize}
+  \item "Effective Java" - Joshua Bloch
+  \item "Head First Design Patterns" - Freeman \& Robson
+  \item "Clean Code" - Robert C. Martin
+  \item "Refactoring" - Martin Fowler
+\end{itemize}
+
+\textbf{Online Courses}:
+\begin{itemize}
+  \item Java Programming and Software Engineering Fundamentals (Coursera)
+  \item Object Oriented Programming in Java (Udemy)
+  \item Design Patterns in Java (Pluralsight)
+\end{itemize}
+
+\textbf{Practice Platforms}:
+\begin{itemize}
+  \item HackerRank (Java track)
+  \item LeetCode (OOP problems)
+  \item Codewars
+  \item Exercism (Java track)
+\end{itemize}
+
+% ============================================================
+% RANGKUMAN PERJALANAN PEMBELAJARAN
+% ============================================================
+
+\begin{rangkuman}
+Selamat! Anda telah menyelesaikan perjalanan pembelajaran Pemrograman Berorientasi Objek. Dari memahami konsep dasar hingga menerapkan design patterns dan best practices, Anda telah membangun fondasi yang kuat dalam pengembangan software modern.
+
+\textbf{Apa yang Telah Anda Pelajari}:
+\begin{itemize}
+  \item Paradigma OOP dan 4 pilar utama
+  \item Class, Object, Constructor, dan Method
+  \item Encapsulation dan Information Hiding
+  \item Inheritance dan Polymorphism
+  \item Abstract Class dan Interface
+  \item UML untuk perancangan sistem
+  \item Exception Handling
+  \item Prinsip SOLID
+  \item Design Patterns
+  \item Collections dan Generics
+  \item Unit Testing dan TDD
+\end{itemize}
+
+\textbf{Langkah Selanjutnya}:
+Terus praktik, buat proyek nyata, dan jangan berhenti belajar. OOP adalah fondasi, tetapi masih banyak yang bisa dipelajari dalam dunia pengembangan software!
+\end{rangkuman}
+
+\end{document}

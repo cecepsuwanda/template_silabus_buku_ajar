@@ -1,6 +1,610 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document}
-\chapter{Bab 3: Judul Bab Ketiga}
-\input{bab-03/section-3-1}
-\input{bab-03/section-3-2}
+
+\chapter{Konsep Class dan Object}
+
+\begin{subcpmk}
+  \item Sub-CPMK 1.2: Mengidentifikasi class, object, dan attribute dalam studi kasus nyata
+  \item Sub-CPMK 1.2: Membuat class sederhana dengan attributes dan methods
+  \item Sub-CPMK 1.2: Memahami perbedaan antara class dan object
+\end{subcpmk}
+
+% ============================================================
+% MATERI POKOK
+% ============================================================
+
+\section{Definisi Class dan Object}
+
+\subsection{Apa itu Class?}
+
+\begin{konsep}
+\textbf{Class} adalah blueprint atau template untuk membuat objek. Class mendefinisikan attributes (data) dan methods (behavior) yang akan dimiliki oleh objek.
+
+Analogi: Class seperti cetak biru rumah, sedangkan object adalah rumah yang dibangun berdasarkan cetak biru tersebut.
+\end{konsep}
+
+Dalam Java, class didefinisikan dengan keyword \keyword{class}:
+
+\begin{javacode}[caption={Struktur Dasar Class}]
+public class NamaClass {
+    // Attributes (instance variables)
+    tipeData namaAttribute;
+    
+    // Constructor
+    public NamaClass() {
+        // Inisialisasi
+    }
+    
+    // Methods
+    public void namaMethod() {
+        // Implementasi
+    }
+}
+\end{javacode}
+
+\subsection{Apa itu Object?}
+
+\begin{konsep}
+\textbf{Object} adalah instance (perwujudan) dari class. Object memiliki state (nilai attributes) dan behavior (methods) yang didefinisikan oleh class-nya.
+\end{konsep}
+
+Membuat object dalam Java menggunakan keyword \keyword{new}:
+
+\begin{javacode}[caption={Membuat Object}]
+NamaClass namaObject = new NamaClass();
+\end{javacode}
+
+\subsection{Hubungan Class dan Object}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|p{3cm}|p{5cm}|p{5cm}|}
+\hline
+\textbf{Aspek} & \textbf{Class} & \textbf{Object} \\
+\hline
+Definisi & Template/Blueprint & Instance dari class \\
+\hline
+Keberadaan & Logical entity & Physical entity \\
+\hline
+Memory & Tidak menggunakan memory & Menggunakan memory \\
+\hline
+Jumlah & Satu class & Banyak object dari satu class \\
+\hline
+Keyword & \code{class} & \code{new} \\
+\hline
+\end{tabular}
+\end{table}
+
+\section{Attributes (Instance Variables)}
+
+\subsection{Definisi Attributes}
+
+\textbf{Attributes} adalah variabel yang didefinisikan di dalam class untuk menyimpan state/data dari object.
+
+\begin{javacode}[caption={Contoh Attributes}]
+public class Mahasiswa {
+    // Attributes
+    String nim;
+    String nama;
+    String jurusan;
+    int semester;
+    double ipk;
+}
+\end{javacode}
+
+\subsection{Jenis Attributes}
+
+\begin{enumerate}
+  \item \textbf{Instance Variables}: Unik untuk setiap object
+  \item \textbf{Static Variables}: Dibagi oleh semua object (akan dibahas nanti)
+\end{enumerate}
+
+\section{Methods (Behavior)}
+
+\subsection{Definisi Methods}
+
+\textbf{Methods} adalah fungsi yang didefinisikan di dalam class untuk menentukan behavior dari object.
+
+\begin{javacode}[caption={Contoh Methods}]
+public class Mahasiswa {
+    String nim;
+    String nama;
+    double ipk;
+    
+    // Method untuk menampilkan info
+    public void tampilkanInfo() {
+        System.out.println("NIM: " + nim);
+        System.out.println("Nama: " + nama);
+        System.out.println("IPK: " + ipk);
+    }
+    
+    // Method untuk mengecek kelulusan
+    public boolean lulus() {
+        return ipk >= 2.0;
+    }
+    
+    // Method untuk mendapatkan predikat
+    public String getPredikat() {
+        if (ipk >= 3.5) return "Cum Laude";
+        else if (ipk >= 3.0) return "Sangat Memuaskan";
+        else if (ipk >= 2.5) return "Memuaskan";
+        else return "Cukup";
+    }
+}
+\end{javacode}
+
+\subsection{Jenis Methods}
+
+\begin{enumerate}
+  \item \textbf{Accessor Methods (Getter)}: Mengambil nilai attribute
+  \item \textbf{Mutator Methods (Setter)}: Mengubah nilai attribute
+  \item \textbf{Utility Methods}: Melakukan operasi tertentu
+\end{enumerate}
+
+\section{Constructor}
+
+\subsection{Apa itu Constructor?}
+
+\begin{konsep}
+\textbf{Constructor} adalah method khusus yang dipanggil saat object dibuat. Constructor digunakan untuk menginisialisasi attributes object.
+
+Ciri-ciri constructor:
+\begin{itemize}
+  \item Nama sama dengan nama class
+  \item Tidak memiliki return type (bahkan bukan \code{void})
+  \item Dipanggil otomatis saat object dibuat dengan \keyword{new}
+\end{itemize}
+\end{konsep}
+
+\begin{javacode}[caption={Contoh Constructor}]
+public class Mahasiswa {
+    String nim;
+    String nama;
+    double ipk;
+    
+    // Constructor tanpa parameter (default constructor)
+    public Mahasiswa() {
+        nim = "0000";
+        nama = "Unknown";
+        ipk = 0.0;
+    }
+    
+    // Constructor dengan parameter
+    public Mahasiswa(String nim, String nama) {
+        this.nim = nim;
+        this.nama = nama;
+        this.ipk = 0.0;
+    }
+    
+    // Constructor dengan semua parameter
+    public Mahasiswa(String nim, String nama, double ipk) {
+        this.nim = nim;
+        this.nama = nama;
+        this.ipk = ipk;
+    }
+}
+\end{javacode}
+
+\subsection{Constructor Overloading}
+
+Class dapat memiliki multiple constructors dengan parameter yang berbeda. Ini disebut \oop{constructor overloading}.
+
+\section{Keyword \texttt{this}}
+
+\subsection{Penggunaan \texttt{this}}
+
+Keyword \keyword{this} merujuk pada object saat ini. Digunakan untuk:
+
+\begin{enumerate}
+  \item Membedakan instance variable dengan parameter yang namanya sama
+  \item Memanggil constructor lain dalam class yang sama
+  \item Mengembalikan instance saat ini
+\end{enumerate}
+
+\begin{javacode}[caption={Penggunaan this}]
+public class Mahasiswa {
+    private String nama;
+    private double ipk;
+    
+    // this untuk membedakan parameter dan instance variable
+    public Mahasiswa(String nama, double ipk) {
+        this.nama = nama;  // this.nama = instance variable
+        this.ipk = ipk;    // nama = parameter
+    }
+    
+    // this untuk memanggil constructor lain
+    public Mahasiswa(String nama) {
+        this(nama, 0.0);  // Memanggil constructor di atas
+    }
+    
+    // this untuk mengembalikan object saat ini
+    public Mahasiswa setNama(String nama) {
+        this.nama = nama;
+        return this;  // Method chaining
+    }
+}
+\end{javacode}
+
+\section{Object Creation dan Instantiation}
+
+\subsection{Membuat Object}
+
+Proses membuat object disebut \oop{instantiation}. Dalam Java, gunakan keyword \keyword{new}:
+
+\begin{javacode}[caption={Membuat dan Menggunakan Object}]
+public class Main {
+    public static void main(String[] args) {
+        // Membuat object dengan default constructor
+        Mahasiswa mhs1 = new Mahasiswa();
+        
+        // Membuat object dengan parameterized constructor
+        Mahasiswa mhs2 = new Mahasiswa("123456", "Budi Santoso");
+        
+        // Mengakses attributes (jika public)
+        mhs2.ipk = 3.75;
+        
+        // Memanggil methods
+        mhs2.tampilkanInfo();
+        System.out.println("Predikat: " + mhs2.getPredikat());
+        
+        // Cek kelulusan
+        if (mhs2.lulus()) {
+            System.out.println(mhs2.nama + " dinyatakan LULUS");
+        }
+    }
+}
+\end{javacode}
+
+\subsection{Memory Allocation}
+
+Ketika object dibuat:
+\begin{enumerate}
+  \item Memory dialokasikan di \textbf{heap}
+  \item Reference variable disimpan di \textbf{stack}
+  \item Constructor dipanggil untuk inisialisasi
+\end{enumerate}
+
+\begin{catatan}
+Jika tidak ada constructor yang didefinisikan, Java otomatis menyediakan \textbf{default constructor} tanpa parameter yang menginisialisasi attributes dengan nilai default (0, null, false).
+\end{catatan}
+
+\section{Static vs Instance Members}
+
+\subsection{Instance Members}
+
+\textbf{Instance members} (attributes dan methods) adalah milik object. Setiap object memiliki copy sendiri.
+
+\subsection{Static Members}
+
+\textbf{Static members} adalah milik class, bukan object. Dibagi oleh semua object.
+
+\begin{javacode}[caption={Static vs Instance}]
+public class Mahasiswa {
+    // Instance variable (setiap object punya copy sendiri)
+    private String nama;
+    private double ipk;
+    
+    // Static variable (dibagi semua object)
+    private static int jumlahMahasiswa = 0;
+    private static String namaUniversitas = "Universitas Lorem Ipsum";
+    
+    public Mahasiswa(String nama, double ipk) {
+        this.nama = nama;
+        this.ipk = ipk;
+        jumlahMahasiswa++;  // Increment setiap object dibuat
+    }
+    
+    // Instance method
+    public void tampilkanInfo() {
+        System.out.println("Nama: " + nama);
+        System.out.println("IPK: " + ipk);
+    }
+    
+    // Static method
+    public static int getJumlahMahasiswa() {
+        return jumlahMahasiswa;
+    }
+    
+    public static String getNamaUniversitas() {
+        return namaUniversitas;
+    }
+}
+
+// Penggunaan
+public class Main {
+    public static void main(String[] args) {
+        // Akses static member tanpa object
+        System.out.println("Universitas: " + Mahasiswa.getNamaUniversitas());
+        
+        Mahasiswa mhs1 = new Mahasiswa("Budi", 3.5);
+        Mahasiswa mhs2 = new Mahasiswa("Ani", 3.8);
+        
+        // Akses static member melalui class name
+        System.out.println("Total mahasiswa: " + Mahasiswa.getJumlahMahasiswa());
+        // Output: Total mahasiswa: 2
+    }
+}
+\end{javacode}
+
+\begin{catatan}
+\textbf{Best Practice}:
+\begin{itemize}
+  \item Akses static members melalui class name, bukan object
+  \item Static methods tidak bisa mengakses instance variables secara langsung
+  \item Gunakan static untuk utility methods atau constants
+\end{itemize}
+\end{catatan}
+
+\section{Contoh Lengkap: Class Buku}
+
+\begin{javacode}[caption={Class Buku - Contoh Lengkap}]
+public class Buku {
+    // Attributes
+    private String isbn;
+    private String judul;
+    private String penulis;
+    private int tahunTerbit;
+    private double harga;
+    private boolean tersedia;
+    
+    // Static variable
+    private static int jumlahBuku = 0;
+    
+    // Constructor
+    public Buku(String isbn, String judul, String penulis, 
+                int tahunTerbit, double harga) {
+        this.isbn = isbn;
+        this.judul = judul;
+        this.penulis = penulis;
+        this.tahunTerbit = tahunTerbit;
+        this.harga = harga;
+        this.tersedia = true;
+        jumlahBuku++;
+    }
+    
+    // Getter methods
+    public String getISBN() {
+        return isbn;
+    }
+    
+    public String getJudul() {
+        return judul;
+    }
+    
+    public String getPenulis() {
+        return penulis;
+    }
+    
+    public int getTahunTerbit() {
+        return tahunTerbit;
+    }
+    
+    public double getHarga() {
+        return harga;
+    }
+    
+    public boolean isTersedia() {
+        return tersedia;
+    }
+    
+    // Setter methods
+    public void setHarga(double harga) {
+        if (harga > 0) {
+            this.harga = harga;
+        }
+    }
+    
+    public void setTersedia(boolean tersedia) {
+        this.tersedia = tersedia;
+    }
+    
+    // Utility methods
+    public void pinjam() {
+        if (tersedia) {
+            tersedia = false;
+            System.out.println("Buku '" + judul + "' berhasil dipinjam");
+        } else {
+            System.out.println("Buku tidak tersedia");
+        }
+    }
+    
+    public void kembalikan() {
+        tersedia = true;
+        System.out.println("Buku '" + judul + "' berhasil dikembalikan");
+    }
+    
+    public void tampilkanInfo() {
+        System.out.println("=== Informasi Buku ===");
+        System.out.println("ISBN: " + isbn);
+        System.out.println("Judul: " + judul);
+        System.out.println("Penulis: " + penulis);
+        System.out.println("Tahun: " + tahunTerbit);
+        System.out.println("Harga: Rp " + harga);
+        System.out.println("Status: " + (tersedia ? "Tersedia" : "Dipinjam"));
+    }
+    
+    // Static method
+    public static int getJumlahBuku() {
+        return jumlahBuku;
+    }
+}
+\end{javacode}
+
+\begin{javacode}[caption={Penggunaan Class Buku}]
+public class TestBuku {
+    public static void main(String[] args) {
+        // Membuat object buku
+        Buku buku1 = new Buku("978-0134685991", 
+                              "Effective Java", 
+                              "Joshua Bloch", 
+                              2018, 
+                              450000);
+        
+        Buku buku2 = new Buku("978-0596009205", 
+                              "Head First Java", 
+                              "Kathy Sierra", 
+                              2005, 
+                              350000);
+        
+        // Menampilkan informasi
+        buku1.tampilkanInfo();
+        System.out.println();
+        
+        // Meminjam buku
+        buku1.pinjam();
+        buku1.pinjam();  // Coba pinjam lagi
+        
+        // Mengembalikan buku
+        buku1.kembalikan();
+        
+        // Mengubah harga
+        buku2.setHarga(300000);
+        
+        // Menampilkan jumlah buku
+        System.out.println("\nTotal buku: " + Buku.getJumlahBuku());
+    }
+}
+\end{javacode}
+
+% ============================================================
+% AKTIVITAS PEMBELAJARAN
+% ============================================================
+
+\begin{aktivitas}
+  \item \textbf{Identifikasi Class}: Dari studi kasus sistem perpustakaan, identifikasi minimal 5 class yang diperlukan beserta attributes dan methods-nya.
+  
+  \item \textbf{Implementasi Class}: Buat class \class{Mobil} dengan attributes: merk, model, tahun, warna, harga. Tambahkan constructor dan methods yang sesuai.
+  
+  \item \textbf{Object Interaction}: Buat class \class{Dosen} dan \class{MataKuliah}. Buat program yang mendemonstrasikan interaksi antara object dosen dan mata kuliah.
+  
+  \item \textbf{Static vs Instance}: Buat class \class{Counter} dengan static variable untuk menghitung jumlah object yang dibuat. Test dengan membuat beberapa object.
+  
+  \item \textbf{Code Review}: Bertukar kode dengan teman, review class yang dibuat teman Anda. Berikan feedback tentang naming, encapsulation, dan design.
+\end{aktivitas}
+
+% ============================================================
+% LATIHAN DAN REFLEKSI
+% ============================================================
+
+\begin{latihan}
+  \item Jelaskan perbedaan antara class dan object! Berikan analogi dari dunia nyata.
+  
+  \item Apa fungsi constructor? Apa yang terjadi jika tidak mendefinisikan constructor dalam class?
+  
+  \item Jelaskan perbedaan antara instance variable dan static variable! Kapan sebaiknya menggunakan static variable?
+  
+  \item Buat class \class{RekeningBank} dengan attributes: nomorRekening, namaPemilik, saldo. Tambahkan methods: setor(), tarik(), cekSaldo(). Implementasikan validasi yang sesuai.
+  
+  \item Buat class \class{Lingkaran} dengan attribute radius. Tambahkan methods untuk menghitung luas dan keliling. Buat program untuk membuat beberapa object lingkaran dengan radius berbeda.
+  
+  \item Modifikasi class \class{Mahasiswa} untuk menambahkan array nilai mata kuliah. Tambahkan method untuk menghitung IPK berdasarkan nilai-nilai tersebut.
+  
+  \item Buat class \class{Produk} untuk sistem e-commerce dengan attributes yang sesuai. Implementasikan method untuk menghitung harga setelah diskon.
+  
+  \item \textbf{Refleksi}: Apa tantangan terbesar yang Anda hadapi dalam memahami konsep class dan object? Bagaimana Anda mengatasinya?
+\end{latihan}
+
+% ============================================================
+% ASESMEN
+% ============================================================
+
+\begin{asesmen}
+\textbf{Instrumen Penilaian untuk Sub-CPMK 1.2}
+
+\textbf{A. Pilihan Ganda}
+
+\begin{enumerate}
+  \item Keyword yang digunakan untuk membuat object dalam Java adalah:
+  \begin{enumerate}
+    \item create
+    \item new
+    \item object
+    \item instance
+  \end{enumerate}
+  
+  \item Manakah pernyataan yang BENAR tentang constructor?
+  \begin{enumerate}
+    \item Constructor harus memiliki return type
+    \item Nama constructor harus berbeda dengan nama class
+    \item Constructor dipanggil otomatis saat object dibuat
+    \item Satu class hanya boleh memiliki satu constructor
+  \end{enumerate}
+  
+  \item Static variable dalam class:
+  \begin{enumerate}
+    \item Unik untuk setiap object
+    \item Dibagi oleh semua object
+    \item Tidak bisa diakses dari luar class
+    \item Harus selalu private
+  \end{enumerate}
+  
+  \item Keyword \code{this} digunakan untuk:
+  \begin{enumerate}
+    \item Merujuk pada superclass
+    \item Merujuk pada object saat ini
+    \item Membuat object baru
+    \item Menghapus object
+  \end{enumerate}
+\end{enumerate}
+
+\textbf{B. Essay}
+
+\begin{enumerate}
+  \item Jelaskan perbedaan antara instance method dan static method! Berikan contoh penggunaan masing-masing.
+  
+  \item Mengapa encapsulation penting? Jelaskan dengan menggunakan contoh class \class{RekeningBank}.
+\end{enumerate}
+
+\textbf{C. Coding Challenge}
+
+\begin{enumerate}
+  \item Buat class \class{Karyawan} dengan attributes: nik, nama, jabatan, gajiPokok. Tambahkan:
+  \begin{itemize}
+    \item Constructor dengan parameter
+    \item Getter dan setter methods
+    \item Method hitungGajiBersih() yang menghitung gaji setelah potongan pajak 10\%
+    \item Method tampilkanInfo()
+  \end{itemize}
+  
+  \item Buat program main yang membuat minimal 3 object karyawan dan menampilkan informasi mereka.
+\end{enumerate}
+
+\textbf{Rubrik Penilaian}: Lihat Lampiran A
+\end{asesmen}
+
+% ============================================================
+% CHECKLIST KOMPETENSI
+% ============================================================
+
+\begin{checklist}
+  \item Saya dapat menjelaskan perbedaan antara class dan object
+  \item Saya dapat membuat class dengan attributes dan methods
+  \item Saya dapat membuat constructor dengan dan tanpa parameter
+  \item Saya dapat membuat dan menggunakan object dari class
+  \item Saya memahami penggunaan keyword \code{this}
+  \item Saya dapat membedakan instance variable dan static variable
+  \item Saya dapat mengidentifikasi class dan object dari studi kasus nyata
+  \item Saya dapat mengimplementasikan getter dan setter methods
+\end{checklist}
+
+% ============================================================
+% RANGKUMAN
+% ============================================================
+
+\begin{rangkuman}
+Bab ini membahas konsep fundamental OOP: Class dan Object. Class adalah blueprint untuk membuat object, sedangkan object adalah instance dari class.
+
+\textbf{Poin Kunci:}
+\begin{itemize}
+  \item Class terdiri dari attributes (data) dan methods (behavior)
+  \item Object dibuat menggunakan keyword \keyword{new}
+  \item Constructor adalah method khusus untuk inisialisasi object
+  \item Keyword \keyword{this} merujuk pada object saat ini
+  \item Instance members milik object, static members milik class
+  \item Encapsulation dicapai dengan access modifiers dan getter/setter
+\end{itemize}
+
+\textbf{Kata Kunci}: \oop{Class}, \oop{Object}, \oop{Attribute}, \oop{Method}, \oop{Constructor}, \oop{this}, \oop{static}, \oop{instance}, \oop{instantiation}
+\end{rangkuman}
+
 \end{document}

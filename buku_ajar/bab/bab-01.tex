@@ -1,6 +1,212 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document}
-\chapter{Bab 1: Judul Bab Pertama}
-\input{bab-01/section-1-1}
-\input{bab-01/section-1-2}
+
+\chapter{Pendahuluan dan Orientasi Buku}
+
+% ============================================================
+% 1. Tujuan Buku Ajar (Learning Outcomes)
+% ============================================================
+\section{Tujuan Buku Ajar}
+
+Buku ajar ini disusun dengan tujuan utama untuk membantu mahasiswa mencapai kompetensi dalam Pemrograman Berorientasi Objek melalui pendekatan \textbf{Outcome-Based Education (OBE)}. Tujuan spesifik buku ini adalah:
+
+\begin{enumerate}
+  \item Memberikan pemahaman mendalam tentang paradigma pemrograman berorientasi objek
+  \item Mengembangkan kemampuan merancang solusi perangkat lunak menggunakan prinsip OOP
+  \item Membangun keterampilan implementasi OOP dengan bahasa pemrograman Java
+  \item Menumbuhkan kemampuan analisis dan evaluasi kualitas kode
+  \item Memfasilitasi pencapaian CPL dan CPMK yang telah ditetapkan
+\end{enumerate}
+
+Setelah mempelajari buku ini secara menyeluruh, mahasiswa diharapkan mampu:
+\begin{itemize}
+  \item Menjelaskan konsep fundamental OOP (class, object, encapsulation, inheritance, polymorphism)
+  \item Merancang sistem menggunakan UML diagrams
+  \item Mengimplementasikan aplikasi Java dengan menerapkan prinsip SOLID
+  \item Mengidentifikasi dan menerapkan design patterns yang tepat
+  \item Menulis kode yang clean, maintainable, dan testable
+\end{itemize}
+
+% ============================================================
+% 2. Keterkaitan dengan RPS Berbasis OBE
+% ============================================================
+\section{Keterkaitan Buku Ajar dengan RPS Berbasis OBE}
+
+Buku ajar ini dirancang selaras dengan Rencana Pembelajaran Semester (RPS) mata kuliah Pemrograman Berorientasi Objek yang berbasis OBE. Keterkaitan ini diwujudkan melalui:
+
+\subsection{Alignment dengan CPL dan CPMK}
+
+Setiap bab dalam buku ini dipetakan secara eksplisit ke Sub-CPMK yang berkontribusi pada pencapaian CPMK dan CPL. Struktur ini memastikan bahwa:
+\begin{itemize}
+  \item Materi pembelajaran fokus pada pencapaian kompetensi terukur
+  \item Aktivitas pembelajaran mendukung pengembangan keterampilan yang diharapkan
+  \item Asesmen mengukur pencapaian kompetensi secara objektif
+\end{itemize}
+
+\subsection{Integrasi Metode Pembelajaran}
+
+Buku ini mengintegrasikan berbagai metode pembelajaran yang tercantum dalam RPS:
+\begin{itemize}
+  \item \textbf{Problem-Based Learning}: Studi kasus nyata dalam setiap bab
+  \item \textbf{Project-Based Learning}: Proyek mini untuk integrasi konsep
+  \item \textbf{Peer Review}: Aktivitas code review antar mahasiswa
+  \item \textbf{Flipped Classroom}: Materi untuk dipelajari mandiri sebelum kelas
+\end{itemize}
+
+\subsection{Sistem Penilaian Terintegrasi}
+
+Komponen asesmen dalam buku ini sejalan dengan sistem penilaian RPS:
+\begin{itemize}
+  \item Latihan untuk tugas individu (15\%)
+  \item Kuis untuk evaluasi formatif (10\%)
+  \item Aktivitas praktikum (15\%)
+  \item Proyek kelompok (20\%)
+  \item Persiapan UTS dan UAS (40\%)
+\end{itemize}
+
+% ============================================================
+% 3. Cara Menggunakan Buku Ajar
+% ============================================================
+\section{Petunjuk Penggunaan Buku Ajar}
+
+\subsection{Untuk Mahasiswa}
+
+\textbf{Sebelum Perkuliahan:}
+\begin{enumerate}
+  \item Baca Sub-CPMK di awal bab untuk memahami target pembelajaran
+  \item Pelajari materi pokok dengan seksama
+  \item Jalankan dan modifikasi semua contoh kode yang diberikan
+  \item Catat pertanyaan atau konsep yang belum dipahami
+\end{enumerate}
+
+\textbf{Selama Perkuliahan:}
+\begin{enumerate}
+  \item Diskusikan konsep yang sulit dengan dosen dan teman
+  \item Kerjakan aktivitas pembelajaran secara aktif
+  \item Tanyakan hal-hal yang belum jelas
+  \item Berpartisipasi dalam code review dan diskusi kelompok
+\end{enumerate}
+
+\textbf{Setelah Perkuliahan:}
+\begin{enumerate}
+  \item Kerjakan latihan dan refleksi
+  \item Lakukan asesmen mandiri
+  \item Centang checklist kompetensi yang telah dikuasai
+  \item Kerjakan proyek mini untuk memperdalam pemahaman
+\end{enumerate}
+
+\subsection{Untuk Dosen}
+
+Buku ini dapat digunakan sebagai:
+\begin{itemize}
+  \item Bahan ajar utama untuk perkuliahan
+  \item Sumber latihan dan tugas
+  \item Referensi untuk menyusun soal ujian
+  \item Panduan untuk merancang aktivitas pembelajaran
+  \item Alat untuk mengukur pencapaian CPMK mahasiswa
+\end{itemize}
+
+% ============================================================
+% 4. Ringkasan Konteks Kurikulum OBE
+% ============================================================
+\section{Konteks Kurikulum OBE}
+
+\subsection{Apa itu Outcome-Based Education?}
+
+\oop{Outcome-Based Education (OBE)} adalah pendekatan pembelajaran yang berfokus pada pencapaian hasil (\textit{outcomes}) yang terukur. Dalam OBE, proses pembelajaran dirancang secara sistematis untuk memastikan mahasiswa mencapai kompetensi yang telah ditetapkan.
+
+\textbf{Prinsip Utama OBE:}
+\begin{enumerate}
+  \item \textbf{Clarity of Focus}: Fokus jelas pada apa yang harus dicapai mahasiswa
+  \item \textbf{Designing Down}: Kurikulum dirancang mundur dari outcomes yang diinginkan
+  \item \textbf{High Expectations}: Ekspektasi tinggi untuk semua mahasiswa
+  \item \textbf{Expanded Opportunity}: Kesempatan beragam untuk mencapai outcomes
+\end{enumerate}
+
+\subsection{Implementasi OBE dalam Buku Ini}
+
+Buku ini mengimplementasikan OBE melalui:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|p{10cm}|}
+\hline
+\textbf{Komponen OBE} & \textbf{Implementasi dalam Buku} \\
+\hline
+Outcomes yang Jelas & Sub-CPMK eksplisit di setiap bab \\
+\hline
+Pembelajaran Terstruktur & Materi disusun dari dasar ke lanjut secara sistematis \\
+\hline
+Aktivitas Beragam & Latihan, studi kasus, proyek, code review \\
+\hline
+Asesmen Terukur & Rubrik penilaian yang jelas untuk setiap kompetensi \\
+\hline
+Feedback Berkelanjutan & Checklist untuk self-assessment \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Hierarki Capaian Pembelajaran}
+
+\begin{konsep}
+Dalam kurikulum OBE, capaian pembelajaran tersusun dalam hierarki:
+
+\textbf{CPL (Capaian Pembelajaran Lulusan)} \\
+$\downarrow$ \\
+\textbf{CPMK (Capaian Pembelajaran Mata Kuliah)} \\
+$\downarrow$ \\
+\textbf{Sub-CPMK (Sub Capaian Pembelajaran Mata Kuliah)} \\
+$\downarrow$ \\
+\textbf{Indikator Pencapaian}
+
+Setiap level berkontribusi pada level di atasnya, memastikan bahwa pembelajaran di tingkat mikro (per bab) mendukung pencapaian kompetensi di tingkat makro (lulusan).
+\end{konsep}
+
+% ============================================================
+% 5. Peta Konsep Mata Kuliah
+% ============================================================
+\section{Peta Konsep Pemrograman Berorientasi Objek}
+
+Mata kuliah ini mencakup 14 topik utama yang saling terkait:
+
+\begin{enumerate}
+  \item \textbf{Bab II}: Landasan Teori - Fondasi paradigma OOP
+  \item \textbf{Bab III}: Class dan Object - Building blocks OOP
+  \item \textbf{Bab IV}: Encapsulation - Information hiding
+  \item \textbf{Bab V}: Inheritance - Code reuse dan hierarki
+  \item \textbf{Bab VI}: Polymorphism - Fleksibilitas kode
+  \item \textbf{Bab VII}: Abstract Class \& Interface - Abstraksi
+  \item \textbf{Bab VIII}: UML Diagrams - Perancangan visual
+  \item \textbf{Bab IX}: Exception Handling - Error management
+  \item \textbf{Bab X}: Prinsip SOLID - Design principles
+  \item \textbf{Bab XI}: Design Patterns - Solusi proven
+  \item \textbf{Bab XII}: Collections \& Generics - Data structures
+  \item \textbf{Bab XIII}: Unit Testing - Quality assurance
+  \item \textbf{Bab XIV}: Evaluasi Komprehensif - Integrasi semua konsep
+\end{enumerate}
+
+\textbf{Alur Pembelajaran:}
+\begin{itemize}
+  \item Bab II-IV: Konsep fundamental OOP
+  \item Bab V-VII: Konsep lanjut OOP
+  \item Bab VIII: Perancangan sistem
+  \item Bab IX-XIII: Best practices dan kualitas kode
+  \item Bab XIV: Evaluasi dan integrasi
+\end{itemize}
+
+% ============================================================
+% Rangkuman Bab
+% ============================================================
+\begin{rangkuman}
+Bab ini memperkenalkan tujuan buku ajar, keterkaitan dengan RPS berbasis OBE, petunjuk penggunaan, dan konteks kurikulum OBE. Pemahaman yang baik tentang struktur dan pendekatan buku ini akan membantu Anda memaksimalkan pembelajaran Pemrograman Berorientasi Objek.
+
+\textbf{Poin Kunci:}
+\begin{itemize}
+  \item Buku ini dirancang dengan pendekatan OBE yang fokus pada pencapaian kompetensi terukur
+  \item Setiap bab dipetakan ke Sub-CPMK yang berkontribusi pada CPL
+  \item Gunakan komponen OBE (Sub-CPMK, aktivitas, latihan, asesmen, checklist) secara optimal
+  \item Pembelajaran OOP tersusun sistematis dari konsep dasar hingga advanced
+\end{itemize}
+\end{rangkuman}
+
 \end{document}
