@@ -1,9 +1,61 @@
-\section{Pendahuluan dan Konsep Dasar}
-\begin{subcpmk}
-  \item Sub-CPMK 3.1: ...
-\end{subcpmk}
-Materi section 3.1. Isi bab ketiga, section pertama. Gantikan dengan uraian sesuai mata kuliah dan capaian pembelajaran.
-\begin{latihan}
-  \item ...
-  \item ...
-\end{latihan}
+\section{Definisi Class dan Object}
+
+\subsection{Apa itu Class?}
+
+\begin{konsep}
+\textbf{Class} adalah blueprint atau template untuk membuat objek. Class mendefinisikan attributes (data) dan methods (behavior) yang akan dimiliki oleh objek.
+
+Analogi: Class seperti cetak biru rumah, sedangkan object adalah rumah yang dibangun berdasarkan cetak biru tersebut.
+\end{konsep}
+
+Dalam Java, class didefinisikan dengan keyword \keyword{class}:
+
+\begin{javacode}[caption={Struktur Dasar Class}]
+public class NamaClass {
+    // Attributes (instance variables)
+    tipeData namaAttribute;
+    
+    // Constructor
+    public NamaClass() {
+        // Inisialisasi
+    }
+    
+    // Methods
+    public void namaMethod() {
+        // Implementasi
+    }
+}
+\end{javacode}
+
+\subsection{Apa itu Object?}
+
+\begin{konsep}
+\textbf{Object} adalah instance (perwujudan) dari class. Object memiliki state (nilai attributes) dan behavior (methods) yang didefinisikan oleh class-nya.
+\end{konsep}
+
+Membuat object dalam Java menggunakan keyword \keyword{new}:
+
+\begin{javacode}[caption={Membuat Object}]
+NamaClass namaObject = new NamaClass();
+\end{javacode}
+
+\subsection{Hubungan Class dan Object}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|p{3cm}|p{5cm}|p{5cm}|}
+\hline
+\textbf{Aspek} & \textbf{Class} & \textbf{Object} \\
+\hline
+Definisi & Template/Blueprint & Instance dari class \\
+\hline
+Keberadaan & Logical entity & Physical entity \\
+\hline
+Memory & Tidak menggunakan memory & Menggunakan memory \\
+\hline
+Jumlah & Satu class & Banyak object dari satu class \\
+\hline
+Keyword & \code{class} & \code{new} \\
+\hline
+\end{tabular}
+\end{table}
