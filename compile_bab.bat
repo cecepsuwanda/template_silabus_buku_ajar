@@ -1,32 +1,59 @@
 @echo off
-setlocal
+setlocal enabledelayedexpansion
 
 set "ROOT_DIR=%~dp0"
 set "OUTPUT_DIR=%ROOT_DIR%output"
+set "SOURCE_DIR=%ROOT_DIR%buku_ajar"
 
 if not exist "%OUTPUT_DIR%" mkdir "%OUTPUT_DIR%"
 
-pushd "%ROOT_DIR%"
-echo Compiling each chapter...
-for %%F in (buku_ajar\bab\bab-*.tex) do (
-  echo Compiling %%~nxF...
-  pdflatex -interaction=nonstopmode -halt-on-error -file-line-error -output-directory="%OUTPUT_DIR%" "%%F"
-  if errorlevel 1 (
-    echo Compilation failed for %%~nxF.
-    popd
-    exit /b 1
-  )
+echo ============================================================
+echo Compiling Individual Chapters
+echo ============================================================
+
+pushd "%SOURCE_DIR%\bab"
+
+for %%F in (bab-*.tex) do (
+    set "FILE_NAME=%%~nF"
+    echo.
+    echo ------------------------------------------------------------
+    echo Compiling !FILE_NAME!...
+    echo ------------------------------------------------------------
+    
+    pdflatex -interaction=nonstopmode -halt-on-error "%%F"
+    if !errorlevel! equ 0 (
+        bibtex "!FILE_NAME!"
+        pdflatex -interaction=nonstopmode -halt-on-error "%%F"
+        pdflatex -interaction=nonstopmode -halt-on-error "%%F"
+        
+        if exist "!FILE_NAME!.pdf" (
+            echo Moving !FILE_NAME!.pdf to output...
+            move /y "!FILE_NAME!.pdf" "..\..\output\!FILE_NAME!.pdf"
+        )
+    ) else (
+        echo ERROR compiling !FILE_NAME!.
+    )
 )
+
 popd
 
-call :cleanup "%OUTPUT_DIR%"
-echo Done. Output PDFs are in %OUTPUT_DIR%.
-exit /b 0
+echo Cleaning up intermediate files...
+call :cleanup "%SOURCE_DIR%"
+
+echo.
+echo Operation Completed. Check the output folder for PDFs.
+goto :end
 
 :cleanup
-set "TARGET=%~1"
-for %%E in (aux bbl blg bcf log out toc lof lot fls fdb_latexmk nav snm vrb idx ilg ind acn acr alg glg glo gls ist xdy run.xml synctex pdfsync) do (
-  del /q "%TARGET%\*.%%E" 2>nul
+set "TARGET_FOLDER=%~1"
+pushd "%TARGET_FOLDER%"
+for %%E in (aux bbl blg bcf out toc lof lot fls fdb_latexmk nav snm vrb idx ilg ind acn acr alg glg glo gls ist xdy run.xml synctex pdfsync synctex.gz) do (
+    del /s /q "*.%%E" 2>nul
 )
-del /q "%TARGET%\*.synctex.gz" 2>nul
+popd
+exit /b 0
+
+:end
+echo.
+pause
 exit /b 0

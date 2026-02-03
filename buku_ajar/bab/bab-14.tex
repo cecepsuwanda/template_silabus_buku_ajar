@@ -1,14 +1,15 @@
-\documentclass[../main.tex]{subfiles}
+\documentclass[c:/Matakuliah/template_silabus_buku_ajar/buku_ajar/main.tex]{subfiles}
+\ifSubfilesClassLoaded{\setcounter{chapter}{13}}{}
 \begin{document}
 
 \chapter{Evaluasi, Refleksi, dan Integrasi Kompetensi}
 
 Bab ini berisi asesmen komprehensif untuk mengukur pencapaian seluruh CPMK yang telah dipelajari sepanjang mata kuliah Pemrograman Berorientasi Objek.
 
-\input{bab-14/bab-14-section-1}
-\input{bab-14/bab-14-section-2}
-\input{bab-14/bab-14-section-3}
-\input{bab-14/bab-14-section-4}
+\input{c:/Matakuliah/template_silabus_buku_ajar/buku_ajar/bab/bab-14/bab-14-section-1}
+\input{c:/Matakuliah/template_silabus_buku_ajar/buku_ajar/bab/bab-14/bab-14-section-2}
+\input{c:/Matakuliah/template_silabus_buku_ajar/buku_ajar/bab/bab-14/bab-14-section-3}
+\input{c:/Matakuliah/template_silabus_buku_ajar/buku_ajar/bab/bab-14/bab-14-section-4}
 
 % ============================================================
 % RANGKUMAN PERJALANAN PEMBELAJARAN
@@ -38,4 +39,9 @@ Selamat! Anda telah menyelesaikan perjalanan pembelajaran Pemrograman Berorienta
 Terus praktik, buat proyek nyata, dan jangan berhenti belajar. OOP adalah fondasi, tetapi masih banyak yang bisa dipelajari dalam dunia pengembangan software!
 \end{rangkuman}
 
+\ifSubfilesClassLoaded{
+  \renewcommand{\bibname}{Daftar Pustaka}
+  \bibliographystyle{plain}
+  \bibliography{c:/Matakuliah/template_silabus_buku_ajar/buku_ajar/references}
+}{}
 \end{document}

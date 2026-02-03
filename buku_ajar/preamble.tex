@@ -6,6 +6,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[indonesian]{babel}
+\usepackage{lmodern}
 
 % --- Layout Halaman ---
 \usepackage{geometry}
@@ -18,11 +19,43 @@
 \usepackage{array}
 \usepackage{multirow}
 \usepackage{xcolor}
+\usepackage{amssymb}
+
+% --- TikZ untuk Diagram ---
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,calc}
+\tikzset{
+  class/.style={
+    rectangle,
+    draw=black,
+    fill=blue!10,
+    minimum width=3cm,
+    minimum height=1cm,
+    text centered,
+    font=\bfseries
+  },
+  object/.style={
+    rectangle,
+    rounded corners,
+    draw=black,
+    fill=green!10,
+    minimum width=3cm,
+    minimum height=1cm,
+    text centered
+  },
+  arrow/.style={
+    thick,
+    ->,
+    >=stealth
+  }
+}
+
 
 % --- List dan Enumerasi ---
 \usepackage{enumitem}
 
 % --- Hyperlinks ---
+\usepackage{xurl}
 \usepackage{hyperref}
 \hypersetup{
   colorlinks=true,
@@ -83,6 +116,9 @@
   xrightmargin=5pt
 }
 
+     
+\renewcommand{\lstlistlistingname}{Daftar Kode Program}
+\renewcommand{\lstlistingname}{Kode Program}
 \lstset{style=javastyle}
 
 % Environment untuk Java code dengan caption

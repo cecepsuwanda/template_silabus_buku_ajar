@@ -1,4 +1,5 @@
-\documentclass[../main.tex]{subfiles}
+\documentclass[c:/Matakuliah/template_silabus_buku_ajar/buku_ajar/main.tex]{subfiles}
+\ifSubfilesClassLoaded{\setcounter{chapter}{2}}{}
 \begin{document}
 
 \chapter{Konsep Class dan Object}
@@ -11,14 +12,14 @@
 % ============================================================
 % MATERI POKOK
 % ============================================================
-\input{bab-03/section-3-1}
-\input{bab-03/section-3-2}
-\input{bab-03/section-3-3}
-\input{bab-03/section-3-4}
-\input{bab-03/section-3-5}
-\input{bab-03/section-3-6}
-\input{bab-03/section-3-7}
-\input{bab-03/section-3-8}
+\input{c:/Matakuliah/template_silabus_buku_ajar/buku_ajar/bab/bab-03/section-3-1}
+\input{c:/Matakuliah/template_silabus_buku_ajar/buku_ajar/bab/bab-03/section-3-2}
+\input{c:/Matakuliah/template_silabus_buku_ajar/buku_ajar/bab/bab-03/section-3-3}
+\input{c:/Matakuliah/template_silabus_buku_ajar/buku_ajar/bab/bab-03/section-3-4}
+\input{c:/Matakuliah/template_silabus_buku_ajar/buku_ajar/bab/bab-03/section-3-5}
+\input{c:/Matakuliah/template_silabus_buku_ajar/buku_ajar/bab/bab-03/section-3-6}
+\input{c:/Matakuliah/template_silabus_buku_ajar/buku_ajar/bab/bab-03/section-3-7}
+\input{c:/Matakuliah/template_silabus_buku_ajar/buku_ajar/bab/bab-03/section-3-8}
 
 % ============================================================
 % AKTIVITAS PEMBELAJARAN
@@ -106,7 +107,7 @@
 \begin{enumerate}
   \item Jelaskan perbedaan antara instance method dan static method! Berikan contoh penggunaan masing-masing.
   
-  \item Mengapa encapsulation penting? Jelaskan dengan menggunakan contoh class \class{RekeningBank}.
+  \item Mengapa encapsulation penting? Jelaskan menggunakan class \class{RekeningBank} sebagai contoh.
 \end{enumerate}
 
 \textbf{C. Coding Challenge}
@@ -161,4 +162,9 @@ Bab ini membahas konsep fundamental OOP: Class dan Object. Class adalah blueprin
 \textbf{Kata Kunci}: \oop{Class}, \oop{Object}, \oop{Attribute}, \oop{Method}, \oop{Constructor}, \oop{this}, \oop{static}, \oop{instance}, \oop{instantiation}
 \end{rangkuman}
 
+\ifSubfilesClassLoaded{
+  \renewcommand{\bibname}{Daftar Pustaka}
+  \bibliographystyle{plain}
+  \bibliography{c:/Matakuliah/template_silabus_buku_ajar/buku_ajar/references}
+}{}
 \end{document}

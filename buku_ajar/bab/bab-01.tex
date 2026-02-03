@@ -1,13 +1,14 @@
-\documentclass[../main.tex]{subfiles}
+\documentclass[c:/Matakuliah/template_silabus_buku_ajar/buku_ajar/main.tex]{subfiles}
+\ifSubfilesClassLoaded{\setcounter{chapter}{0}}{}
 \begin{document}
 
 \chapter{Pendahuluan dan Orientasi Buku}
 
-\input{bab-01/section-1-1}
-\input{bab-01/section-1-2}
-\input{bab-01/section-1-3}
-\input{bab-01/section-1-4}
-\input{bab-01/section-1-5}
+\input{c:/Matakuliah/template_silabus_buku_ajar/buku_ajar/bab/bab-01/section-1-1}
+\input{c:/Matakuliah/template_silabus_buku_ajar/buku_ajar/bab/bab-01/section-1-2}
+\input{c:/Matakuliah/template_silabus_buku_ajar/buku_ajar/bab/bab-01/section-1-3}
+\input{c:/Matakuliah/template_silabus_buku_ajar/buku_ajar/bab/bab-01/section-1-4}
+\input{c:/Matakuliah/template_silabus_buku_ajar/buku_ajar/bab/bab-01/section-1-5}
 
 % ============================================================
 % Rangkuman Bab
@@ -24,4 +25,9 @@ Bab ini memperkenalkan tujuan buku ajar, keterkaitan dengan RPS berbasis OBE, pe
 \end{itemize}
 \end{rangkuman}
 
+\ifSubfilesClassLoaded{
+  \renewcommand{\bibname}{Daftar Pustaka}
+  \bibliographystyle{plain}
+  \bibliography{c:/Matakuliah/template_silabus_buku_ajar/buku_ajar/references}
+}{}
 \end{document}

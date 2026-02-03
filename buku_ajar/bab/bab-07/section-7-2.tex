@@ -25,7 +25,7 @@ class PembayaranKartu implements Pembayaran {
 \subsection{Perbandingan Abstract Class vs Interface}
 \begin{table}[h]
 \centering
-\begin{tabular}{|p{4cm}|p{5cm}|p{5cm}|}
+\begin{tabular}{|p{3cm}|p{5cm}|p{5.5cm}|}
 \hline
 \textbf{Aspek} & \textbf{Abstract Class} & \textbf{Interface} \\
 \hline
@@ -38,6 +38,7 @@ State & Dapat memiliki attribute & Hanya constant (public static final) \\
 Method & Abstract dan konkret & Abstract, default, static \\
 \hline
 \end{tabular}
+\caption{Perbandingan Abstract Class dan Interface}
 \end{table}
 
 % ============================================================
@@ -45,8 +46,9 @@ Method & Abstract dan konkret & Abstract, default, static \\
 % ============================================================
 
 \begin{aktivitas}
+\sloppy
   \item \textbf{Diskusi}: Tentukan kapan menggunakan abstract class dan kapan interface.
-  \item \textbf{Implementasi}: Buat interface \class{Notifikasi} dan class \class{EmailNotifikasi}, \class{SMSNotifikasi}.
+  \item \textbf{Implementasi}: Buat interface \class{Notifikasi}. Lalu buat class \class{EmailNotifikasi} dan \class{SMSNotifikasi}.
   \item \textbf{Studi Kasus}: Rancang abstract class \class{Bentuk} dan implementasi \class{Lingkaran}, \class{Segitiga}.
   \item \textbf{Review}: Analisis kode yang menggunakan inheritance berlebihan dan usulkan perbaikan dengan interface.
 \end{aktivitas}
@@ -113,7 +115,7 @@ Method & Abstract dan konkret & Abstract, default, static \\
 % ============================================================
 
 \begin{rangkuman}
-Abstract class menyediakan dasar perilaku dan state bersama, sedangkan interface menyediakan kontrak untuk perilaku. Keduanya mendukung polymorphism dan desain yang fleksibel.
+Abstract class menyediakan dasar perilaku dan state bersama, sedangkan interface menyediakan kontrak untuk perilaku \cite{ref4}. Keduanya mendukung polymorphism dan desain yang fleksibel.
 
 \textbf{Kata Kunci}: \oop{Abstract Class}, \oop{Interface}, \oop{implements}, \oop{default method}, \oop{polymorphism}
 \end{rangkuman}

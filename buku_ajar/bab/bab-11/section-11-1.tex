@@ -1,10 +1,10 @@
-\section{Pengenalan Design Patterns dan Creational Patterns}
+\section{Design Patterns: Creational Patterns}
 \begin{subcpmk}
   \item Sub-CPMK 4.2: Mengimplementasikan minimal 3 design patterns (Singleton, Factory, Observer)
 \end{subcpmk}
 
 \begin{konsep}
-\textbf{Design pattern} adalah solusi umum untuk masalah desain yang sering muncul. Pattern membantu menghasilkan kode yang terstruktur dan mudah dipelihara.
+\textbf{Design Pattern} adalah solusi umum untuk masalah yang sering muncul dalam konteks desain perangkat lunak \cite{ref1}. Pattern bukanlah desain akhir yang dapat langsung diubah menjadi kode, melainkan template tentang cara menyelesaikan masalah.
 \end{konsep}
 
 \subsection{Singleton Pattern}
@@ -24,6 +24,24 @@ public class DatabaseConnection {
     }
 }
 \end{javacode}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+  \node (singleton) [class, minimum width=4.5cm] {
+    \begin{tabular}{c}
+      \textbf{SingletonClass} \\
+      \hline
+      - instance: SingletonClass \\
+      \hline
+      + getInstance(): SingletonClass \\
+      - SingletonClass()
+    \end{tabular}
+  };
+  \draw [arrow, out=30, in=330, looseness=3] (singleton.east) to node[right] {creates} (singleton.east);
+\end{tikzpicture}
+\caption{Struktur Singleton Pattern}
+\end{figure}
 
 \subsection{Factory Pattern}
 Menyediakan cara membuat objek tanpa mengekspos logika instansiasi.
@@ -53,3 +71,16 @@ class KendaraanFactory {
     }
 }
 \end{javacode}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[node distance=1.5cm]
+  \node (factory) [class] {Factory};
+  \node (interface) [class, fill=gray!20, right=of factory] {\textit{Product}};
+  \node (concrete) [class, below=of interface] {ConcreteProduct};
+  
+  \draw [arrow] (factory) -- (interface) node[midway, above] {creates};
+  \draw [arrow] (concrete) -- (interface);
+\end{tikzpicture}
+\caption{Struktur Factory Pattern}
+\end{figure}

@@ -3,10 +3,23 @@
 \subsection{Apa itu Class?}
 
 \begin{konsep}
-\textbf{Class} adalah blueprint atau template untuk membuat objek. Class mendefinisikan attributes (data) dan methods (behavior) yang akan dimiliki oleh objek.
+\textbf{Class} adalah blueprint atau template yang mendefinisikan karakteristik dan perilaku dari suatu entitas \cite{ref2}. Class mendefinisikan attributes (data) dan methods (behavior) yang akan dimiliki oleh objek.
 
 Analogi: Class seperti cetak biru rumah, sedangkan object adalah rumah yang dibangun berdasarkan cetak biru tersebut.
 \end{konsep}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[node distance=2cm]
+  \node (class) [class] {Class: Blueprint Rumah};
+  \node (obj1) [object, below left=of class] {Object 1: Rumah A};
+  \node (obj2) [object, below right=of class] {Object 2: Rumah B};
+  
+  \draw [arrow] (class) -- (obj1) node[midway, left] {instansiasi};
+  \draw [arrow] (class) -- (obj2) node[midway, right] {instansiasi};
+\end{tikzpicture}
+\caption{Konsep Class dan Object}
+\end{figure}
 
 Dalam Java, class didefinisikan dengan keyword \keyword{class}:
 
@@ -58,4 +71,5 @@ Jumlah & Satu class & Banyak object dari satu class \\
 Keyword & \code{class} & \code{new} \\
 \hline
 \end{tabular}
+\caption{Hubungan Class dan Object}
 \end{table}

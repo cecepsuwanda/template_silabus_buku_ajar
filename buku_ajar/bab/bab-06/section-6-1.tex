@@ -4,7 +4,7 @@
 \end{subcpmk}
 
 \begin{konsep}
-\textbf{Polymorphism} adalah kemampuan objek untuk tampil dalam banyak bentuk. Dalam Java, polymorphism muncul dalam dua bentuk: compile-time (overloading) dan runtime (overriding).
+\textbf{Polymorphism} adalah kemampuan suatu object untuk mengambil berbagai bentuk \cite{ref4}. Dalam Java, polymorphism muncul dalam dua bentuk: compile-time (overloading) dan runtime (overriding).
 \end{konsep}
 
 \subsection{Compile-time Polymorphism (Overloading)}
@@ -32,3 +32,25 @@ class Kalkulator {
   \item Mengurangi kompleksitas nama method
   \item Membuat kode lebih mudah dibaca
 \end{itemize}
+
+\subsection{Perbandingan Overloading vs Overriding}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|p{3cm}|p{5cm}|p{5cm}|}
+\hline
+\textbf{Aspek} & \textbf{Overloading} & \textbf{Overriding} \\
+\hline
+Binding Time & Compile-time (Static) & Runtime (Dynamic) \\
+\hline
+Class & Dalam class yang sama & Antara superclass dan subclass \\
+\hline
+Keyword & Tidak ada & \keyword{@Override} (Opsional tapi disarankan) \\
+\hline
+Parameter & Harus berbeda & Harus sama \\
+\hline
+Return Type & Boleh berbeda & Harus sama atau sub-type \\
+\hline
+\end{tabular}
+\caption{Perbandingan Overloading dan Overriding}
+\end{table}

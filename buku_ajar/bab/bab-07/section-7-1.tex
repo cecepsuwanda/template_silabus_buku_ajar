@@ -4,7 +4,7 @@
 \end{subcpmk}
 
 \begin{konsep}
-\textbf{Abstract class} adalah class yang tidak dapat diinstansiasi dan dapat memiliki method abstrak (tanpa implementasi) serta method konkret.
+\textbf{Abstraksi} melalui abstract class dan interface adalah mekanisme utama untuk mencapai desain yang fleksibel dalam Java \cite{ref4}. Abstract class tidak dapat diinstansiasi dan dapat memiliki method abstrak serta konkret.
 \end{konsep}
 
 \subsection{Karakteristik Abstract Class}
@@ -43,6 +43,17 @@ class PegawaiTetap extends Pegawai {
     }
 }
 \end{javacode}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[node distance=2cm]
+  \node (pegawai) [class, fill=gray!20] {\textit{Pegawai}};
+  \node (tetap) [class, below=of pegawai] {PegawaiTetap};
+  
+  \draw [arrow] (tetap) -- (pegawai);
+\end{tikzpicture}
+\caption{Hierarki Class Pegawai (Abstract)}
+\end{figure}
 
 \subsection{Kapan Menggunakan Abstract Class}
 Gunakan abstract class ketika:
